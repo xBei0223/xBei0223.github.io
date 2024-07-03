@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ page.title }}</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
+</head>
+<body>
+  <div id="app">
+    {{ content }}
+  </div>
+  <script src="{{ '/assets/main.js' | relative_url }}"></script>
+</body>
+</html>

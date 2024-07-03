@@ -1,10 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>xBei's Blog</title>
-</head>
-<body>
-    <h1>Hello, Blog World ~</h1>
-</body>
-</html>
+---
+layout: default
+title: Home
+---
+
+<div id="app">
+  <header class="header">
+    <div class="header-content">
+      <h1>Welcome to xbei's Blog</h1>
+      <p>This is the personal blog of xbei.</p>
+    </div>
+  </header>
+  
+  <main class="main-content">
+    <section id="posts" class="posts-section">
+      <h2>Recent Posts</h2>
+      <ul>
+        {% for post in site.posts %}
+          <li class="post-item">
+            <a href="{{ post.url | relative_url }}" class="post-link">{{ post.title }}</a>
+            <span class="post-date">{{ post.date | date: "%B %d, %Y" }}</span>
+            <p class="post-excerpt">{{ post.excerpt }}</p>
+            <a href="{{ post.url | relative_url }}" class="read-more">Read more</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+  </main>
+</div>
