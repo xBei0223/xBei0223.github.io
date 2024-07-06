@@ -12,24 +12,23 @@
   <header>
     <nav>
       <ul>
-        <li><a href="{{ '/' | relative_url }}">Home</a></li>
-        <li><a href="{{ '/about/' | relative_url }}">About</a></li>
-        <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
-        <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
+        <li><a href="{{ '/' | relative_url }}">首页</a></li>
+        <li><a href="{{ '/blog/' | relative_url }}">文章</a></li>
+        <li><a href="{{ '/archives/' | relative_url }}">归档</a></li>
+        <li><a href="{{ '/about/' | relative_url }}">关于</a></li>
       </ul>
     </nav>
   </header>
-  <main class="post-content">
-    <article>
-      <h1>{{ page.title }}</h1>
-      <p class="post-date">{{ page.date | date: "%B %d, %Y" }}</p>
-      <div class="post-body">
-        {{ content }}
-      </div>
-    </article>
+  <main>
     <aside class="sidebar">
-      <h2>About Me</h2>
-      <p>Short bio or description about the author.</p>
+      <div class="toc">
+        <div class="toc">
+          <h2>目录</h2>
+           {{ content | toc_only }}
+        </div>
+      </div>
+<!--      <h2>About Me</h2>-->
+<!--      <p>Short bio or description about the author.</p>-->
       <h2>Follow Me</h2>
       <div class="social-links">
         <a href="https://space.bilibili.com/your-bilibili-id" target="_blank">
@@ -38,11 +37,17 @@
         <a href="https://github.com/your-github-id" target="_blank">
           <i class="fab fa-github"></i>
         </a>
-        <a href="https://twitter.com/your-twitter-id" target="_blank">
-          <i class="fab fa-twitter"></i>
-        </a>
       </div>
-    </aside>
+      </aside>
+    <div class="post-content">
+      <article>
+        <h1>{{ page.title }}</h1>
+        <p class="post-date">{{ page.date | date: "%B %d, %Y" }}</p>
+        <div class="post-body">
+          {{ content }}
+        </div>
+      </article>
+    </div>
   </main>
   <footer>
     <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
